@@ -85,3 +85,16 @@ while read ind;
 conda deactivate
 
 ```
+
+Deduplicate in parallel
+
+```
+cat CharrSeqIds SalmonSeqIds | \
+  parallel --jobs 100 'gatk --java-options "-Xmx4G" \
+  MarkDuplicates \
+  I=align/{}.sorted.bam \
+  O=align/{}.deDup.bam M=align/{}_deDupMetrics.txt \
+  REMOVE_DUPLICATES=true'
+
+``` 
+ 
