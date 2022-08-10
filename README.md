@@ -9,7 +9,7 @@ list and make unique reads for parallelizing
 ```
 ls reads_salmon/*gz | sed 's/\_R..fastq.gz//' | sed 's/reads_salmon\///' | sort | uniq > SalmonSeqIds
 ls reads_charr/*gz | sed 's/\_R..fastq.gz//' | sed 's/reads_salmon\///' | sort | uniq > CharrSeqIds
-``
+```
 
 Trim reads
 ```
