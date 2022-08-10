@@ -97,4 +97,27 @@ cat CharrSeqIds SalmonSeqIds | \
   REMOVE_DUPLICATES=true'
 
 ``` 
- 
+
+Index after deduplication
+```
+while read  ind; 
+  do samtools index align/$ind.deDup.bam ; 
+done < SalmonSeqIds
+```
+
+Depth analysis
+
+```
+conda create -n mosdepth mosdepth -c bioconda
+conda activate mosdepth
+
+cat SalmonSeqIds |
+parallel --jobs 50 'mosdepth -n --fast-mode \
+--by 5000 depths/Salmon{} align/{}.deDup.bam '
+
+
+cat CharrSeqIds |
+parallel --jobs 50 'mosdepth -n --fast-mode \
+--by 5000 depths/Charr{} align/{}.deDup.bam '
+
+```
