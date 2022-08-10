@@ -33,17 +33,25 @@ parallel -j 30 \
   -O trim/{}_R2.trimmed.fastq.gz \
   --thread 4 '
 
-##done, now deactivate
 conda deactivate
 ```
 
-prepare alignment environment and activate
+Prepare alignment environment and activate
+```
 conda create -n align samtools htslib bwa bwa-mem2 -c bioconda
-
 conda activate align
+```
+
+Index reference genome
+
+```
 bwa index reference/CIGENE-ICSASG_v2.fa
 samtools faidx reference/CIGENE-ICSASG_v2.fa
+```
 
+Align
+
+```
 mkdir align
 
 while read ind;
@@ -73,3 +81,5 @@ while read ind;
   samtools sort -o align/$ind\.sorted.bam -T $ind -@ 100 -m 20G ;
   done < CharrSeqIds 
 
+conda deactivate
+```
