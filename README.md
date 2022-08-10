@@ -37,6 +37,7 @@ conda deactivate
 ```
 
 Prepare alignment environment and activate
+
 ```
 conda create -n align samtools htslib bwa bwa-mem2 -c bioconda
 conda activate align
@@ -82,4 +83,5 @@ while read ind;
   done < CharrSeqIds 
 
 conda deactivate
+
 ```
