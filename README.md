@@ -1,4 +1,4 @@
-#Nuclear eDNA project
+# Nuclear eDNA project
 
 Goal: to identify high depth/repetition genomic regions present in Atlantic Salmon anod not present in other salmonids.
 Starting with Arctic Charr and Atantic Salmon because we have that data on hand. 
