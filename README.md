@@ -121,3 +121,23 @@ parallel --jobs 50 'mosdepth -n --fast-mode \
 --by 5000 depths/Charr{} align/{}.deDup.bam '
 
 ```
+Extract per window depths
+
+```
+ ls *bed.gz | \
+  sed s'/.bed.gz//' | \
+  parallel 'gzip -dc {}.bed.gz | cut -f4 > {}.5k.depths ' 
+
+```
+Check to ensuyre same number of lines occur per file, extract chrom and window information, make species-level depth matrix files
+
+```
+wc -l *depths
+
+gzip -dc CharrNS.1779.001.UDP0289_i7---UDP0289_i5.PG001_2013_1M.regions.bed.gz | cut -f1,2,3 > locs 
+
+paste locs Charr*depths > Charr.5kdepths
+paste locs Salmo*depths > Salmo.5kdepths
+
+```
+ 
