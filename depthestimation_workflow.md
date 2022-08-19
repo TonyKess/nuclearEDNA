@@ -1,4 +1,4 @@
-# nuclearEDNA
+# Depth estimation
 Make a conda environment for read trimming
 ```
 conda create -n fastp fastp -c bioconda
