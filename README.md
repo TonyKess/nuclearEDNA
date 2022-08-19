@@ -140,4 +140,4 @@ paste locs Charr*depths > Charr.5kdepths
 paste locs Salmo*depths > Salmo.5kdepths
 
 ```
- Now, go to salmon_charr_depthcompare.R[https://github.com/TonyKess/nuclearEDNA/blob/main/salmon_charr_depthcompare.R] to generate Charr_salm_top10_deltacov.bed
+ Now, go to [salmon_charr_depthcompare.R](https://github.com/TonyKess/nuclearEDNA/blob/main/salmon_charr_depthcompare.R) to generate Charr_salm_top10_deltacov.bed
