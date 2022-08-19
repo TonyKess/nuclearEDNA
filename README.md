@@ -140,4 +140,11 @@ paste locs Charr*depths > Charr.5kdepths
 paste locs Salmo*depths > Salmo.5kdepths
 
 ```
- Now, go to [salmon_charr_depthcompare.R](https://github.com/TonyKess/nuclearEDNA/blob/main/salmon_charr_depthcompare.R) to generate Charr_salm_top10_deltacov.bed
+ Now, go to [salmon_charr_depthcompare.R](https://github.com/TonyKess/nuclearEDNA/blob/main/salmon_charr_depthcompare.R) to generate Charr_salm_top10_deltacov.bed , then extract fasta sequence from the reference genome and remove flanking N sequences from the 5Kb window. 
+ 
+ ```
+ bedtools getfasta  -fi CIGENE-ICSASG_v2.fa \
+  -bed Charr_salm_top10_deltacov.bed  | sed 's/N//g' > charr_salm_top10_noN.fasta
+ ```
+ 
+
