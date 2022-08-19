@@ -129,7 +129,7 @@ Extract per window depths
   parallel 'gzip -dc {}.bed.gz | cut -f4 > {}.5k.depths ' 
 
 ```
-Check to ensuyre same number of lines occur per file, extract chrom and window information, make species-level depth matrix files
+Check to ensure same number of lines occur per file, extract chrom and window information, make species-level depth matrix files
 
 ```
 wc -l *depths
@@ -140,4 +140,4 @@ paste locs Charr*depths > Charr.5kdepths
 paste locs Salmo*depths > Salmo.5kdepths
 
 ```
- 
+ Now, go to salmon_charr_depthcompare.R[] to generate Charr_salm_top10_deltacov.bed
